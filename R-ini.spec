@@ -4,18 +4,22 @@
 #
 Name     : R-ini
 Version  : 0.3.1
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/ini_0.3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ini_0.3.1.tar.gz
 Summary  : Read and Write '.ini' Files
 Group    : Development/Tools
 License  : GPL-3.0
+Requires: R-withr
 BuildRequires : R-rlang
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
-can manipulate this resulting list with lapply() functions. This same
-  structured list can be used to write back to file after modifications.
+# ini
+[![Travis-CI Build Status](https://travis-ci.org/dvdscripter/ini.svg?branch=master)](https://travis-ci.org/dvdscripter/ini)
+[![CRAN version](http://www.r-pkg.org/badges/version/ini)](https://cran.r-project.org/package=ini)
+[![CRAN downloads](http://cranlogs.r-pkg.org/badges/ini)](https://cran.r-project.org/package=ini)
 
 %prep
 %setup -q -c -n ini
@@ -25,10 +29,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540741666
+export SOURCE_DATE_EPOCH=1552833905
 
 %install
-export SOURCE_DATE_EPOCH=1540741666
+export SOURCE_DATE_EPOCH=1552833905
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -64,8 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library ini|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  ini || :
 
 
 %files
@@ -90,3 +93,7 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/ini/help/paths.rds
 /usr/lib64/R/library/ini/html/00Index.html
 /usr/lib64/R/library/ini/html/R.css
+/usr/lib64/R/library/ini/tests/testthat.R
+/usr/lib64/R/library/ini/tests/testthat/test-read.ini.R
+/usr/lib64/R/library/ini/tests/testthat/test-write.ini.R
+/usr/lib64/R/library/ini/tests/testthat/writeini.txt

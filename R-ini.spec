@@ -4,13 +4,16 @@
 #
 Name     : R-ini
 Version  : 0.3.1
-Release  : 7
+Release  : 8
 URL      : https://cran.r-project.org/src/contrib/ini_0.3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ini_0.3.1.tar.gz
 Summary  : Read and Write '.ini' Files
 Group    : Development/Tools
 License  : GPL-3.0
-Requires: R-withr
+Requires: R-assertthat
+Requires: R-cli
+BuildRequires : R-assertthat
+BuildRequires : R-cli
 BuildRequires : R-rlang
 BuildRequires : R-withr
 BuildRequires : buildreq-R
@@ -29,10 +32,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552833905
+export SOURCE_DATE_EPOCH=1552892920
 
 %install
-export SOURCE_DATE_EPOCH=1552833905
+export SOURCE_DATE_EPOCH=1552892920
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

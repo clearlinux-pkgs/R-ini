@@ -4,42 +4,36 @@
 #
 Name     : R-ini
 Version  : 0.3.1
-Release  : 16
+Release  : 17
 URL      : https://cran.r-project.org/src/contrib/ini_0.3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/ini_0.3.1.tar.gz
 Summary  : Read and Write '.ini' Files
 Group    : Development/Tools
 License  : GPL-3.0
-BuildRequires : R-assertthat
-BuildRequires : R-cli
-BuildRequires : R-rlang
-BuildRequires : R-withr
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# ini
-[![Travis-CI Build Status](https://travis-ci.org/dvdscripter/ini.svg?branch=master)](https://travis-ci.org/dvdscripter/ini)
-[![CRAN version](http://www.r-pkg.org/badges/version/ini)](https://cran.r-project.org/package=ini)
-[![CRAN downloads](http://cranlogs.r-pkg.org/badges/ini)](https://cran.r-project.org/package=ini)
+can manipulate this resulting list with lapply() functions. This same
+  structured list can be used to write back to file after modifications.
 
 %prep
 %setup -q -c -n ini
+cd %{_builddir}/ini
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571847584
+export SOURCE_DATE_EPOCH=1589574645
 
 %install
-export SOURCE_DATE_EPOCH=1571847584
+export SOURCE_DATE_EPOCH=1589574645
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
